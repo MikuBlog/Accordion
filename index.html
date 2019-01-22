@@ -25,7 +25,10 @@
             right: 0;
             bottom: 0;
             opacity: 0;
-            transition:2s;
+            transition:1s;
+            background-image: url(https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/62941432_p0.png);
+            background-size: cover;
+            filter: blur(5px);
         }
 
         #white {
@@ -37,15 +40,6 @@
             height: 100%;
         }
 
-        #background>img {
-            width: 100%;
-            height: auto;
-            filter: blur(8px);
-            vertical-align: middle;
-            position: absolute;
-            transition:1s;
-            opacity: 1;
-        }
         #background>img+img{
             opacity: 0;
         }
@@ -92,11 +86,7 @@
 
 <body>
     <div id="background">
-        <img src="https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/62941432_p0.png" alt="壁纸1.jpg" class = "pic">
-        <img src="https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/66001476_p0.jpg" alt="壁纸2.jpg" class = "pic">
-        <img src="https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/68865307_p0.png" alt="壁纸3.jpg" class = "pic">
-        <img src="https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/69547025_p0.jpg" alt="壁纸4.jpg" class = "pic">
-        <img src="https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/69713505_p0.png" alt="壁纸5.jpg" class = "pic">
+        
     </div>
     <div id="piano">
         <ul>
@@ -126,18 +116,21 @@
         var pic = document.querySelectorAll('.pic');
         var piano = document.querySelector('#piano');
         var width;
+        var url = "https://mikuimg.oss-cn-shenzhen.aliyuncs.com/Accordion/62941432_p0.png"
         let i;
         setTimeout(function(){
             background.style.opacity = 1;
+            background.style.backgroundImage = `url(${url})`
         },0)
         setTimeout(function(){
             piano.style.opacity = 1;
         },600)
-        function click1() {
+        function click1(event) {
             this.style.width = "600px";
             $(pic[this.num]).css({"opacity":"1"});
             $(pic[this.num]).siblings().css({"opacity":"0"});
-            $(this).siblings().css({"width":"200px"});        
+            $(this).siblings().css({"width":"200px"});    
+            background.style.backgroundImage = `url(${this.firstElementChild.src})`    
             this.addEventListener('click', click2)
         }
         function click2() {
