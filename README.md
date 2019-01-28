@@ -2,4 +2,4 @@
 
 <br/>
 
-> demo示例: http://accordion.mikublog.xyz
+> demo示例: http://accordion.xuanzai.top
